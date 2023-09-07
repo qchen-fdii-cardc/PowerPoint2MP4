@@ -35,7 +35,6 @@ namespace PowerPointSetAudio
                 synthesizer.Speak(noteText);
 
                 // add audio shape to slide
-                //var audioShape = slide.Shapes.AddMediaObject(fn, 10, 10);
                 var audioShape = slide.Shapes.AddMediaObject2(fn, MsoTriState.msoFalse, MsoTriState.msoTrue, 10, 10, 100, 100);
                 audioShape.AnimationSettings.PlaySettings.PlayOnEntry = MsoTriState.msoTrue;
                 audioShape.AnimationSettings.PlaySettings.HideWhileNotPlaying = MsoTriState.msoTrue;
@@ -71,6 +70,7 @@ namespace PowerPointSetAudio
                         {
                             // remove audio shape
                             shape.Delete();
+                            audioCount++;
                         }
                     }
                 }
