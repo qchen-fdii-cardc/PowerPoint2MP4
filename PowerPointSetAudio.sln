@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointSetAudio", "PowerPointSetAudio\PowerPointSetAudio.csproj", "{685FF441-8B9A-4132-BE78-2C203C3E8289}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{685FF441-8B9A-4132-BE78-2C203C3E8289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{685FF441-8B9A-4132-BE78-2C203C3E8289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{685FF441-8B9A-4132-BE78-2C203C3E8289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{685FF441-8B9A-4132-BE78-2C203C3E8289}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF20A8A0-C65D-49A6-B538-EBBE1275CA5B}
+	EndGlobalSection
+EndGlobal
