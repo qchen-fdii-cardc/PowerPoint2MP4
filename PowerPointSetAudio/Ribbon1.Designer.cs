@@ -39,6 +39,7 @@
             this.buttonClearAudio = this.Factory.CreateRibbonButton();
             this.buttonSetAudio = this.Factory.CreateRibbonButton();
             this.buttonExportMP4 = this.Factory.CreateRibbonButton();
+            this.speedBox = this.Factory.CreateRibbonComboBox();
             this.tab1.SuspendLayout();
             this.AudioSetting.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +53,10 @@
             // 
             // AudioSetting
             // 
-            this.AudioSetting.Items.Add(this.buttonClearAudio);
+            this.AudioSetting.Items.Add(this.speedBox);
             this.AudioSetting.Items.Add(this.buttonSetAudio);
             this.AudioSetting.Items.Add(this.buttonExportMP4);
+            this.AudioSetting.Items.Add(this.buttonClearAudio);
             this.AudioSetting.Label = "AudioSetting";
             this.AudioSetting.Name = "AudioSetting";
             // 
@@ -82,6 +84,13 @@
             this.buttonExportMP4.ShowImage = true;
             this.buttonExportMP4.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonExportMP4_Click);
             // 
+            // speedBox
+            // 
+            this.speedBox.Label = "Speech Rate";
+            this.speedBox.Name = "speedBox";
+            this.speedBox.Text = null;
+            this.speedBox.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.speedBox_TextChanged);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -103,6 +112,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSetAudio;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonExportMP4;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonClearAudio;
+        internal Microsoft.Office.Tools.Ribbon.RibbonComboBox speedBox;
     }
 
     partial class ThisRibbonCollection

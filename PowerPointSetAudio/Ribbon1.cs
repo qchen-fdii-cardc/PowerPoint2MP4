@@ -11,8 +11,17 @@ namespace PowerPointSetAudio
 {
     public partial class Ribbon1
     {
+        private int selctedRate = 0;
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
+            for (int i = -10; i <= 10; i++)
+            {
+                var item = this.Factory.CreateRibbonDropDownItem();
+                item.Label = i.ToString();
+                this.speedBox.Items.Add(item);
+            }
+
+            this.speedBox.Text = "2".ToString();
 
         }
 
@@ -21,7 +30,7 @@ namespace PowerPointSetAudio
 
             // iterate all slides in current opened presentation
             foreach (PowerPoint.Slide slide in Globals.ThisAddIn.Application.ActivePresentation.Slides)
-            {        
+            {
 
                 var synthesizer = new SpeechSynthesizer();
 
@@ -32,15 +41,17 @@ namespace PowerPointSetAudio
                 // get a audio stream
                 synthesizer.SetOutputToWaveFile(fn);
                 // call text to speech
-                synthesizer.Speak(noteText);
 
+
+                synthesizer.Rate = selctedRate;
+                synthesizer.Speak(noteText);
                 // add audio shape to slide
                 var audioShape = slide.Shapes.AddMediaObject2(fn, MsoTriState.msoFalse, MsoTriState.msoTrue, 10, 10, 100, 100);
                 audioShape.AnimationSettings.PlaySettings.PlayOnEntry = MsoTriState.msoTrue;
                 audioShape.AnimationSettings.PlaySettings.HideWhileNotPlaying = MsoTriState.msoTrue;
 
                 // update progressbar in ribbon
-             
+
 
             }
         }
@@ -78,6 +89,21 @@ namespace PowerPointSetAudio
             // Show messagebox to say finished, and how many slides were processed
             var msg = $"{audioCount} audio files deleted in {Globals.ThisAddIn.Application.ActivePresentation.Slides.Count} slides";
             System.Windows.Forms.MessageBox.Show(msg);
+        }
+
+        private void speedBox_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            var ret = this.speedBox.Text;
+            try
+            {
+                selctedRate = int.Parse(ret);
+            }
+            catch (Exception ex)
+            {
+                // do nothing
+            };
+
+
         }
     }
 }
